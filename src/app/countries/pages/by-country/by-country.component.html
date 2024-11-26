@@ -1,0 +1,22 @@
+<h2>Por País</h2>
+<hr />
+<div class="row">
+  <div class="col">
+    <shared-search-box
+      [initialValue]="initialValue"
+      (onValue)="searchByCountry($event)"
+      placeholderName="Buscar por País"
+    ></shared-search-box>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <hr />
+    <shared-loader-spinner
+      *ngIf="isLoading; else table"
+    ></shared-loader-spinner>
+    <ng-template #table>
+      <countries-table [countries]="countries"></countries-table>
+    </ng-template>
+  </div>
+</div>
